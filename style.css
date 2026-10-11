@@ -1,97 +1,181 @@
+/* =====================================================================
+   style.css  -  ALL styling for the whole site lives in this one file.
+   Beginner tips:
+   - Colors and fonts are set once, in the ":root" block right below.
+     Change them there and every page updates.
+   - Lines starting with /* and ending with */ are comments (ignored).
+   ===================================================================== */
+
+/* Fonts (loaded from Google Fonts in each page's <head>):
+   - "IM Fell DW Pica"  -> your name (old, slightly rough book type)
+   - "EB Garamond"      -> everything else (classic book serif)        */
+
+:root {
+  --text:   #333333;   /* main text color (soft charcoal, not pure black) */
+  --link:   #3a5fcd;   /* blue used for the current page + hover          */
+  --bg:     #ffffff;   /* page background                                  */
+  --muted:  #777777;   /* captions and small notes                         */
+
+  --font-name: "IM Fell DW Pica", "Georgia", serif;
+  --font-body: "EB Garamond", "Georgia", "Times New Roman", serif;
+
+  --sidebar-width: 260px;   /* width of the left-hand column */
+}
+
+/* ---------- Basics ---------- */
+* { box-sizing: border-box; }
+
+html { font-size: 20px; }
+
 body {
-    margin: 0;
-    font-family: Georgia, "Times New Roman", serif;
-    color: #111;
-    background: #ffffff;
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
 }
 
-header {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 35px 40px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid #ddd;
+a {
+  color: var(--text);
+  text-decoration: none;
+}
+a:hover { color: var(--link); }
+
+img { max-width: 100%; display: block; }
+
+/* ---------- Page layout: narrow left column + big right area ---------- */
+.page {
+  display: flex;
+  min-height: 100vh;
 }
 
+.sidebar {
+  width: var(--sidebar-width);
+  flex-shrink: 0;
+  padding: 3.5rem 0 3rem 3.5rem;
+}
+
+.content {
+  flex: 1;
+  padding: 3.5rem 4rem 3rem 3rem;
+  min-width: 0;
+}
+
+/* ---------- Your name ---------- */
 .site-name {
-    font-size: 22px;
-    font-weight: bold;
+  display: block;
+  font-family: var(--font-name);
+  font-weight: 400;
+  font-size: 2.4rem;
+  line-height: 1.05;
+  margin: 0 0 2.2rem 0;
+  color: var(--text);
+}
+.site-name:hover { color: var(--text); }  /* name does not turn blue */
+
+/* ---------- Navigation ---------- */
+.nav {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 1.35rem;
+}
+.nav li { margin: 0 0 0.55rem 0; }
+
+/* The page you are currently on is blue (class="current" in the HTML) */
+.nav a.current { color: var(--link); }
+
+/* ---------- Home page: the big featured image ---------- */
+.featured {
+  margin: 0;
+}
+.featured img {
+  width: 100%;
+  max-height: 82vh;
+  object-fit: cover;
+}
+.caption {
+  margin-top: 0.7rem;
+  font-size: 0.8rem;
+  color: var(--muted);
+  font-style: italic;
 }
 
-nav {
+/* ---------- Text pages (About, Resume, Contact) ---------- */
+.text {
+  max-width: 34rem;
+}
+.text h1 {
+  font-weight: 400;
+  font-size: 1.9rem;
+  margin: 0 0 1.2rem 0;
+}
+.text h2 {
+  font-weight: 400;
+  font-style: italic;
+  font-size: 1.25rem;
+  margin: 2.2rem 0 0.4rem 0;
+}
+.text p { margin: 0 0 1.1rem 0; }
+.text a {
+  border-bottom: 1px solid #bbb;
+}
+.text a:hover { border-bottom-color: var(--link); }
+
+.portrait {
+  width: 100%;
+  max-width: 20rem;
+  margin: 0 0 1.8rem 0;
+}
+
+.plain-list {
+  list-style: none;
+  margin: 0 0 1.1rem 0;
+  padding: 0;
+}
+.plain-list li { margin-bottom: 0.3rem; }
+
+/* ---------- Projects page ---------- */
+.project {
+  max-width: 38rem;
+  margin: 0 0 3.2rem 0;
+}
+.project h2 {
+  font-weight: 400;
+  font-size: 1.5rem;
+  margin: 0.8rem 0 0.1rem 0;
+}
+.project .year {
+  color: var(--muted);
+  font-style: italic;
+  font-size: 0.85rem;
+  margin: 0 0 0.5rem 0;
+}
+.project p { margin: 0; }
+
+/* ---------- Mobile (screens narrower than 800px) ---------- */
+@media (max-width: 800px) {
+  html { font-size: 18px; }
+
+  .page { display: block; }
+
+  .sidebar {
+    width: auto;
+    padding: 2rem 1.5rem 0 1.5rem;
+  }
+  .site-name {
+    font-size: 2.1rem;
+    margin-bottom: 1.1rem;
+  }
+  /* Nav becomes a wrapped row of words under your name */
+  .nav {
     display: flex;
-    gap: 28px;
-}
+    flex-wrap: wrap;
+    gap: 0.2rem 1.2rem;
+    font-size: 1.15rem;
+  }
+  .nav li { margin: 0; }
 
-nav a {
-    color: #111;
-    text-decoration: none;
-    font-size: 17px;
-}
-
-nav a:hover {
-    text-decoration: underline;
-}
-
-main {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 70px 40px;
-}
-
-section {
-    margin-bottom: 100px;
-}
-
-#home {
-    min-height: 55vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-#home h1 {
-    font-size: 52px;
-    margin-bottom: 10px;
-}
-
-#home h2 {
-    font-size: 25px;
-    margin: 0 0 18px 0;
-    font-weight: normal;
-}
-
-p {
-    font-size: 18px;
-    line-height: 1.7;
-    max-width: 700px;
-}
-
-section h2 {
-    font-size: 32px;
-    border-bottom: 1px solid #bbb;
-    padding-bottom: 12px;
-}
-
-section h3 {
-    font-size: 22px;
-}
-
-@media (max-width: 700px) {
-    header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 20px;
-    }
-
-    nav {
-        flex-wrap: wrap;
-        gap: 15px;
-    }
-
-    #home h1 {
-        font-size: 40px;
-    }
+  .content { padding: 2rem 1.5rem 3rem 1.5rem; }
 }
