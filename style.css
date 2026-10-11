@@ -1,181 +1,405 @@
-/* =====================================================================
-   style.css  -  ALL styling for the whole site lives in this one file.
-   Beginner tips:
-   - Colors and fonts are set once, in the ":root" block right below.
-     Change them there and every page updates.
-   - Lines starting with /* and ending with */ are comments (ignored).
-   ===================================================================== */
+/* -----------------------------
+   BASE
+----------------------------- */
 
-/* Fonts (loaded from Google Fonts in each page's <head>):
-   - "IM Fell DW Pica"  -> your name (old, slightly rough book type)
-   - "EB Garamond"      -> everything else (classic book serif)        */
-
-:root {
-  --text:   #333333;   /* main text color (soft charcoal, not pure black) */
-  --link:   #3a5fcd;   /* blue used for the current page + hover          */
-  --bg:     #ffffff;   /* page background                                  */
-  --muted:  #777777;   /* captions and small notes                         */
-
-  --font-name: "IM Fell DW Pica", "Georgia", serif;
-  --font-body: "EB Garamond", "Georgia", "Times New Roman", serif;
-
-  --sidebar-width: 260px;   /* width of the left-hand column */
+* {
+    box-sizing: border-box;
 }
 
-/* ---------- Basics ---------- */
-* { box-sizing: border-box; }
-
-html { font-size: 20px; }
+html {
+    scroll-behavior: smooth;
+}
 
 body {
-  margin: 0;
-  background: var(--bg);
-  color: var(--text);
-  font-family: var(--font-body);
-  line-height: 1.5;
-  -webkit-font-smoothing: antialiased;
+    margin: 0;
+    background: #ffffff;
+    color: #111111;
+
+    font-family: Georgia, "Times New Roman", serif;
 }
 
-a {
-  color: var(--text);
-  text-decoration: none;
-}
-a:hover { color: var(--link); }
 
-img { max-width: 100%; display: block; }
+/* -----------------------------
+   MAIN LAYOUT
+----------------------------- */
 
-/* ---------- Page layout: narrow left column + big right area ---------- */
 .page {
-  display: flex;
-  min-height: 100vh;
+    width: 1180px;
+    max-width: calc(100% - 60px);
+
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns: 260px 1fr;
+
+    column-gap: 95px;
 }
+
+
+/* -----------------------------
+   LEFT SIDE
+----------------------------- */
 
 .sidebar {
-  width: var(--sidebar-width);
-  flex-shrink: 0;
-  padding: 3.5rem 0 3rem 3.5rem;
+    padding-top: 205px;
+
+    position: sticky;
+
+    top: 0;
+
+    height: 100vh;
 }
+
+.name {
+    margin: 0 0 32px 0;
+
+    font-size: 37px;
+
+    line-height: 1.05;
+
+    font-weight: normal;
+
+    letter-spacing: -1px;
+}
+
+
+/* -----------------------------
+   NAVIGATION
+----------------------------- */
+
+.menu {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 13px;
+}
+
+.menu a {
+    color: #111;
+
+    text-decoration: none;
+
+    font-size: 21px;
+
+    line-height: 1.15;
+}
+
+.menu a:hover {
+    text-decoration: underline;
+}
+
+.menu .active {
+    color: #2358c6;
+}
+
+
+/* -----------------------------
+   RIGHT SIDE
+----------------------------- */
 
 .content {
-  flex: 1;
-  padding: 3.5rem 4rem 3rem 3rem;
-  min-width: 0;
+    width: 100%;
 }
 
-/* ---------- Your name ---------- */
-.site-name {
-  display: block;
-  font-family: var(--font-name);
-  font-weight: 400;
-  font-size: 2.4rem;
-  line-height: 1.05;
-  margin: 0 0 2.2rem 0;
-  color: var(--text);
-}
-.site-name:hover { color: var(--text); }  /* name does not turn blue */
 
-/* ---------- Navigation ---------- */
-.nav {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  font-size: 1.35rem;
-}
-.nav li { margin: 0 0 0.55rem 0; }
+/* -----------------------------
+   HOME
+----------------------------- */
 
-/* The page you are currently on is blue (class="current" in the HTML) */
-.nav a.current { color: var(--link); }
+.home-section {
+    min-height: 100vh;
 
-/* ---------- Home page: the big featured image ---------- */
-.featured {
-  margin: 0;
-}
-.featured img {
-  width: 100%;
-  max-height: 82vh;
-  object-fit: cover;
-}
-.caption {
-  margin-top: 0.7rem;
-  font-size: 0.8rem;
-  color: var(--muted);
-  font-style: italic;
-}
-
-/* ---------- Text pages (About, Resume, Contact) ---------- */
-.text {
-  max-width: 34rem;
-}
-.text h1 {
-  font-weight: 400;
-  font-size: 1.9rem;
-  margin: 0 0 1.2rem 0;
-}
-.text h2 {
-  font-weight: 400;
-  font-style: italic;
-  font-size: 1.25rem;
-  margin: 2.2rem 0 0.4rem 0;
-}
-.text p { margin: 0 0 1.1rem 0; }
-.text a {
-  border-bottom: 1px solid #bbb;
-}
-.text a:hover { border-bottom-color: var(--link); }
-
-.portrait {
-  width: 100%;
-  max-width: 20rem;
-  margin: 0 0 1.8rem 0;
-}
-
-.plain-list {
-  list-style: none;
-  margin: 0 0 1.1rem 0;
-  padding: 0;
-}
-.plain-list li { margin-bottom: 0.3rem; }
-
-/* ---------- Projects page ---------- */
-.project {
-  max-width: 38rem;
-  margin: 0 0 3.2rem 0;
-}
-.project h2 {
-  font-weight: 400;
-  font-size: 1.5rem;
-  margin: 0.8rem 0 0.1rem 0;
-}
-.project .year {
-  color: var(--muted);
-  font-style: italic;
-  font-size: 0.85rem;
-  margin: 0 0 0.5rem 0;
-}
-.project p { margin: 0; }
-
-/* ---------- Mobile (screens narrower than 800px) ---------- */
-@media (max-width: 800px) {
-  html { font-size: 18px; }
-
-  .page { display: block; }
-
-  .sidebar {
-    width: auto;
-    padding: 2rem 1.5rem 0 1.5rem;
-  }
-  .site-name {
-    font-size: 2.1rem;
-    margin-bottom: 1.1rem;
-  }
-  /* Nav becomes a wrapped row of words under your name */
-  .nav {
     display: flex;
-    flex-wrap: wrap;
-    gap: 0.2rem 1.2rem;
-    font-size: 1.15rem;
-  }
-  .nav li { margin: 0; }
 
-  .content { padding: 2rem 1.5rem 3rem 1.5rem; }
+    align-items: center;
+}
+
+
+/* -----------------------------
+   POSTER / HERO
+----------------------------- */
+
+.poster {
+    width: 720px;
+
+    max-width: 100%;
+
+    transform: translateY(-15px);
+}
+
+.poster-heading {
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: 37px;
+
+    font-weight: 800;
+
+    letter-spacing: -1.5px;
+
+    text-align: center;
+
+    margin-bottom: 18px;
+}
+
+
+/* -----------------------------
+   CUSTOM BLACK + WHITE ART
+----------------------------- */
+
+.poster-art {
+    height: 355px;
+
+    position: relative;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            to bottom,
+            transparent 49%,
+            #111 49%,
+            #111 50%,
+            transparent 50%
+        ),
+        linear-gradient(
+            to right,
+            transparent 49%,
+            #111 49%,
+            #111 50%,
+            transparent 50%
+        );
+
+    border-bottom: 3px solid #111;
+}
+
+.chip {
+    width: 190px;
+
+    height: 190px;
+
+    position: absolute;
+
+    left: 50%;
+
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+
+    background: #111;
+
+    color: white;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: 58px;
+
+    font-weight: 700;
+
+    letter-spacing: -3px;
+}
+
+
+/* circuit lines */
+
+.line {
+    position: absolute;
+
+    height: 3px;
+
+    background: #111;
+}
+
+.line-1 {
+    width: 230px;
+
+    left: 0;
+
+    top: 95px;
+}
+
+.line-2 {
+    width: 230px;
+
+    right: 0;
+
+    top: 95px;
+}
+
+.line-3 {
+    width: 230px;
+
+    left: 0;
+
+    bottom: 75px;
+}
+
+.line-4 {
+    width: 230px;
+
+    right: 0;
+
+    bottom: 75px;
+}
+
+
+/* -----------------------------
+   POSTER CAPTION
+----------------------------- */
+
+.poster-caption {
+    margin-top: 10px;
+
+    font-size: 14px;
+
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* -----------------------------
+   CONTENT SECTIONS
+----------------------------- */
+
+.text-section {
+    max-width: 720px;
+
+    min-height: 75vh;
+
+    padding-top: 110px;
+
+    padding-bottom: 100px;
+
+    border-top: 1px solid #ddd;
+}
+
+.text-section h2 {
+    margin-top: 0;
+
+    margin-bottom: 34px;
+
+    font-size: 31px;
+
+    font-weight: normal;
+}
+
+.text-section p {
+    max-width: 620px;
+
+    font-size: 18px;
+
+    line-height: 1.7;
+}
+
+
+/* -----------------------------
+   PROJECTS
+----------------------------- */
+
+.project {
+    margin-top: 35px;
+}
+
+.project h3 {
+    margin-bottom: 4px;
+
+    font-size: 23px;
+
+    font-weight: normal;
+}
+
+.project-date {
+    margin-top: 0;
+
+    color: #666;
+
+    font-size: 14px !important;
+}
+
+
+/* -----------------------------
+   LINKS
+----------------------------- */
+
+.text-section a {
+    color: #2358c6;
+
+    text-decoration: underline;
+}
+
+
+/* -----------------------------
+   MOBILE
+----------------------------- */
+
+@media (max-width: 800px) {
+
+    .page {
+        display: block;
+
+        width: auto;
+
+        max-width: none;
+
+        margin: 0;
+
+        padding: 35px 28px;
+    }
+
+    .sidebar {
+        position: static;
+
+        height: auto;
+
+        padding-top: 20px;
+
+        margin-bottom: 80px;
+    }
+
+    .name {
+        font-size: 34px;
+    }
+
+    .home-section {
+        min-height: auto;
+
+        margin-bottom: 120px;
+    }
+
+    .poster-heading {
+        font-size: 25px;
+    }
+
+    .poster-art {
+        height: 250px;
+    }
+
+    .chip {
+        width: 135px;
+
+        height: 135px;
+
+        font-size: 42px;
+    }
+
+    .line {
+        width: 32%;
+    }
+
+    .text-section {
+        min-height: auto;
+
+        padding-top: 70px;
+
+        padding-bottom: 90px;
+    }
+
 }
