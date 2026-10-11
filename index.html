@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Christopher Khalilieh</title>
+
+    <!-- Font -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=IM+Fell+English&display=swap"
+        rel="stylesheet"
+    >
+
+    <style>
+
+        /* ========================================
+           BASIC PAGE SETUP
+        ======================================== */
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            margin: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        body {
+            background: #ffffff;
+            color: #222222;
+
+            font-family: "IM Fell English", Georgia, serif;
+
+            overflow: hidden;
+        }
+
+
+        /* ========================================
+           MAIN LAYOUT
+        ======================================== */
+
+        .page {
+            width: 1060px;
+
+            max-width: calc(100vw - 80px);
+
+            height: 100vh;
+
+            margin: 0 auto;
+
+            display: grid;
+
+            grid-template-columns: 300px 1fr;
+
+            column-gap: 115px;
+
+            align-items: center;
+        }
+
+
+        /* ========================================
+           LEFT SIDE
+        ======================================== */
+
+        .sidebar {
+            align-self: center;
+        }
+
+
+        /* Big title */
+
+        #page-title {
+            margin: 0 0 38px 0;
+
+            font-size: 48px;
+
+            line-height: 1;
+
+            font-weight: normal;
+
+            letter-spacing: -1px;
+        }
+
+
+        /* ========================================
+           NAVIGATION
+        ======================================== */
+
+        nav {
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: flex-start;
+
+            gap: 16px;
+        }
+
+
+        nav button {
+            padding: 0;
+
+            margin: 0;
+
+            border: none;
+
+            background: none;
+
+            color: #222222;
+
+            font-family: inherit;
+
+            font-size: 30px;
+
+            line-height: 1;
+
+            cursor: pointer;
+        }
+
+
+        nav button:hover {
+            text-decoration: underline;
+        }
+
+
+        nav button.active {
+            color: #2864d7;
+        }
+
+
+        /* ========================================
+           RIGHT SIDE
+        ======================================== */
+
+        .content {
+            width: 100%;
+
+            max-width: 650px;
+
+            align-self: center;
+        }
+
+
+        /* Each "page" is hidden by default */
+
+        .section {
+            display: none;
+        }
+
+
+        /* Only current page appears */
+
+        .section.active {
+            display: block;
+        }
+
+
+        /* ========================================
+           TEXT
+        ======================================== */
+
+        .section h2 {
+            margin: 0 0 22px 0;
+
+            font-size: 35px;
+
+            line-height: 1.1;
+
+            font-weight: normal;
+        }
+
+
+        .section h3 {
+            margin: 38px 0 14px 0;
+
+            font-size: 29px;
+
+            font-weight: normal;
+        }
+
+
+        .section p {
+            margin: 0 0 15px 0;
+
+            max-width: 630px;
+
+            font-size: 24px;
+
+            line-height: 1.45;
+        }
+
+
+        .section a {
+            color: #2864d7;
+
+            text-decoration: underline;
+        }
+
+
+        /* ========================================
+           HOME IMAGE
+        ======================================== */
+
+        .home-image {
+            display: block;
+
+            width: 650px;
+
+            max-width: 100%;
+
+            max-height: 520px;
+
+            object-fit: contain;
+
+            filter: grayscale(100%);
+        }
+
+
+        /* ========================================
+           PROJECTS
+        ======================================== */
+
+        .project-date {
+            color: #777777;
+
+            font-size: 18px !important;
+
+            margin-bottom: 22px !important;
+        }
+
+
+        /* ========================================
+           MOBILE
+        ======================================== */
+
+        @media (max-width: 800px) {
+
+            body {
+                overflow: auto;
+            }
+
+            .page {
+                display: block;
+
+                width: auto;
+
+                max-width: none;
+
+                height: auto;
+
+                min-height: 100vh;
+
+                padding: 70px 35px;
+            }
+
+            .sidebar {
+                margin-bottom: 70px;
+            }
+
+            #page-title {
+                font-size: 42px;
+            }
+
+            nav button {
+                font-size: 27px;
+            }
+
+            .content {
+                max-width: 100%;
+            }
+
+            .home-image {
+                width: 100%;
+
+                height: auto;
+            }
+
+            .section p {
+                font-size: 21px;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+    <main class="page">
+
+
+        <!-- ======================================
+             LEFT SIDE
+        ======================================= -->
+
+        <aside class="sidebar">
+
+            <h1 id="page-title">
+                Christopher Khalilieh
+            </h1>
+
+
+            <nav>
+
+                <button
+                    class="nav-button active"
+                    data-page="home"
+                >
+                    Home
+                </button>
+
+
+                <button
+                    class="nav-button"
+                    data-page="about"
+                >
+                    About
+                </button>
+
+
+                <button
+                    class="nav-button"
+                    data-page="projects"
+                >
+                    Projects
+                </button>
+
+
+                <button
+                    class="nav-button"
+                    data-page="videos"
+                >
+                    Videos
+                </button>
+
+
+                <button
+                    class="nav-button"
+                    data-page="thoughts"
+                >
+                    Thoughts
+                </button>
+
+
+                <button
+                    class="nav-button"
+                    data-page="contact"
+                >
+                    Contact
+                </button>
+
+            </nav>
+
+        </aside>
+
+
+
+        <!-- ======================================
+             RIGHT SIDE
+        ======================================= -->
+
+        <section class="content">
+
+
+            <!-- =================================
+                 HOME
+            ================================== -->
+
+            <div
+                id="home"
+                class="section active"
+            >
+
+                <!--
+                    UPLOAD YOUR IMAGE HERE:
+
+                    images/home-image.jpg
+                -->
+
+                <img
+                    class="home-image"
+                    src="images/home-image.jpg"
+                    alt="Christopher Khalilieh"
+                >
+
+            </div>
+
+
+
+            <!-- =================================
+                 ABOUT
+            ================================== -->
+
+            <div
+                id="about"
+                class="section"
+            >
+
+                <p>
+                    About me coming soon.
+                </p>
+
+            </div>
+
+
+
+            <!-- =================================
+                 PROJECTS
+            ================================== -->
+
+            <div
+                id="projects"
+                class="section"
+            >
+
+                <h2>
+                    Custom TARS-Inspired Robot
+                </h2>
+
+                <p class="project-date">
+                    2026 — Present
+                </p>
+
+                <p>
+                    Independent robotics project.
+                </p>
+
+            </div>
+
+
+
+            <!-- =================================
+                 VIDEOS
+            ================================== -->
+
+            <div
+                id="videos"
+                class="section"
+            >
+
+                <p>
+                    Videos coming soon.
+                </p>
+
+            </div>
+
+
+
+            <!-- =================================
+                 THOUGHTS
+            ================================== -->
+
+            <div
+                id="thoughts"
+                class="section"
+            >
+
+                <p>
+                    Thoughts coming soon.
+                </p>
+
+            </div>
+
+
+
+            <!-- =================================
+                 CONTACT
+            ================================== -->
+
+            <div
+                id="contact"
+                class="section"
+            >
+
+                <p>
+                    <a href="mailto:khaliliehchris@gmail.com">
+                        khaliliehchris@gmail.com
+                    </a>
+                </p>
+
+                <p>
+                    <a
+                        href="https://github.com/chriskhalilieh"
+                        target="_blank"
+                    >
+                        GitHub
+                    </a>
+                </p>
+
+            </div>
+
+
+        </section>
+
+    </main>
+
+
+
+    <!-- ==========================================
+         PAGE SWITCHING
+    =========================================== -->
+
+    <script>
+
+        const buttons =
+            document.querySelectorAll(".nav-button");
+
+        const sections =
+            document.querySelectorAll(".section");
+
+        const title =
+            document.getElementById("page-title");
+
+
+        /*
+            These control the large title
+            shown on the left side.
+        */
+
+        const titles = {
+
+            home:
+                "Christopher Khalilieh",
+
+            about:
+                "About",
+
+            projects:
+                "Projects",
+
+            videos:
+                "Videos",
+
+            thoughts:
+                "Thoughts",
+
+            contact:
+                "Contact"
+
+        };
+
+
+        /*
+            Switch to selected page
+        */
+
+        function showPage(pageName) {
+
+            /* Hide all sections */
+
+            sections.forEach(section => {
+
+                section.classList.remove("active");
+
+            });
+
+
+            /* Remove blue from menu */
+
+            buttons.forEach(button => {
+
+                button.classList.remove("active");
+
+            });
+
+
+            /* Show correct section */
+
+            const selectedSection =
+                document.getElementById(pageName);
+
+            if (selectedSection) {
+
+                selectedSection.classList.add("active");
+
+            }
+
+
+            /* Make correct navigation blue */
+
+            const selectedButton =
+                document.querySelector(
+                    `[data-page="${pageName}"]`
+                );
+
+            if (selectedButton) {
+
+                selectedButton.classList.add("active");
+
+            }
+
+
+            /* Change big title */
+
+            title.textContent =
+                titles[pageName];
+
+
+            /* Update URL */
+
+            if (pageName === "home") {
+
+                history.pushState(
+                    null,
+                    "",
+                    window.location.pathname
+                );
+
+            }
+
+            else {
+
+                history.pushState(
+                    null,
+                    "",
+                    "#" + pageName
+                );
+
+            }
+
+        }
+
+
+        /*
+            Handle menu clicks
+        */
+
+        buttons.forEach(button => {
+
+            button.addEventListener(
+                "click",
+                function () {
+
+                    const page =
+                        this.dataset.page;
+
+                    showPage(page);
+
+                }
+            );
+
+        });
+
+
+        /*
+            If somebody opens:
+
+            website.com/#projects
+
+            automatically show Projects.
+        */
+
+        function loadFromURL() {
+
+            const page =
+                window.location.hash
+                    .replace("#", "");
+
+
+            if (
+                page &&
+                titles[page]
+            ) {
+
+                showPage(page);
+
+            }
+
+            else {
+
+                showPage("home");
+
+            }
+
+        }
+
+
+        /*
+            Handle back / forward browser buttons
+        */
+
+        window.addEventListener(
+            "popstate",
+            loadFromURL
+        );
+
+
+        /*
+            Initial page load
+        */
+
+        loadFromURL();
+
+    </script>
+
+</body>
+
+</html>
