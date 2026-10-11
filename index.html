@@ -1,54 +1,152 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- CHANGE: the text shown on the browser tab -->
-  <title>Christopher Khalilieh</title>
-  <meta name="description" content="Electrical engineering student at The Ohio State University.">
+    <title>Christopher Khalilieh</title>
 
-  <!-- Fonts from Google Fonts (needs internet; falls back to Georgia if offline) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=IM+Fell+DW+Pica&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-<div class="page">
 
-  <!-- ============ LEFT COLUMN: your name + navigation ============
-       The same block is copied into every .html page.
-       If you add or rename a page, update this block in each file.
-       "current" on a link makes it blue. Move it to the page you're on. -->
-  <header class="sidebar">
-    <!-- CHANGE: your name -->
-    <a class="site-name" href="index.html">C. Khalilieh</a>
+    <main class="page">
 
-    <nav>
-      <ul class="nav">
-        <li><a href="index.html" class="current">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="projects.html">Projects</a></li>
-        <li><a href="resume.html">Resume</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+        <aside class="sidebar">
 
-  <!-- ============ RIGHT AREA: the big featured image ============
-       CHANGE the image: upload your photo to the "images" folder as
-       images/featured.jpg, then change the src below to "images/featured.jpg".
-       CHANGE alt (a short description of the photo, for screen readers)
-       CHANGE the caption text, or delete the <p class="caption"> line. -->
-  <main class="content">
-    <figure class="featured">
-      <img src="images/featured-placeholder.svg" alt="A circuit board I built">
-      <p class="caption">Placeholder: replace with a photo of a project, a circuit board, or a robot.</p>
-    </figure>
-  </main>
+            <h1 class="name">Christopher<br>Khalilieh</h1>
 
-</div>
+            <nav class="menu">
+                <a class="active" href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#projects">Projects</a>
+                <a href="#notes">Notes</a>
+                <a href="#contact">Contact</a>
+            </nav>
+
+        </aside>
+
+
+        <section class="content">
+
+            <!-- HOME -->
+            <section id="home" class="home-section">
+
+                <div class="poster">
+
+                    <div class="poster-heading">
+                        CIRCUITS / ROBOTICS / HARDWARE
+                    </div>
+
+                    <div class="poster-art">
+
+                        <div class="chip">
+                            CK
+                        </div>
+
+                        <div class="line line-1"></div>
+                        <div class="line line-2"></div>
+                        <div class="line line-3"></div>
+                        <div class="line line-4"></div>
+
+                    </div>
+
+                    <div class="poster-caption">
+                        Electrical Engineering · The Ohio State University
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- ABOUT -->
+            <section id="about" class="text-section">
+
+                <h2>About</h2>
+
+                <p>
+                    I'm Christopher Khalilieh, an Electrical Engineering student
+                    at The Ohio State University.
+                </p>
+
+                <p>
+                    I'm interested in computer hardware, electronic circuits,
+                    digital systems, robotics, and the technology that connects
+                    hardware and software.
+                </p>
+
+            </section>
+
+
+            <!-- PROJECTS -->
+            <section id="projects" class="text-section">
+
+                <h2>Projects</h2>
+
+                <div class="project">
+
+                    <h3>Custom TARS-Inspired Robot</h3>
+
+                    <p class="project-date">
+                        2026 — Present
+                    </p>
+
+                    <p>
+                        Independent robotics project focused on researching and
+                        developing a personalized hardware implementation inspired
+                        by TARS.
+                    </p>
+
+                    <p>
+                        The project is currently in the design and component
+                        selection stage, with future plans for conversational
+                        AI integration.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+            <!-- NOTES -->
+            <section id="notes" class="text-section">
+
+                <h2>Notes</h2>
+
+                <p>
+                    A place for things I'm learning, building, experimenting with,
+                    and thinking about.
+                </p>
+
+            </section>
+
+
+            <!-- CONTACT -->
+            <section id="contact" class="text-section">
+
+                <h2>Contact</h2>
+
+                <p>
+                    <a href="mailto:khaliliehchris@gmail.com">
+                        khaliliehchris@gmail.com
+                    </a>
+                </p>
+
+                <p>
+                    <a href="https://github.com/chriskhalilieh" target="_blank">
+                        GitHub
+                    </a>
+                </p>
+
+            </section>
+
+        </section>
+
+    </main>
+
 </body>
+
 </html>
