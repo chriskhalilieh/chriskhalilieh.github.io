@@ -1,0 +1,97 @@
+body {
+    margin: 0;
+    font-family: Georgia, "Times New Roman", serif;
+    color: #111;
+    background: #ffffff;
+}
+
+header {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 35px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+}
+
+.site-name {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+nav {
+    display: flex;
+    gap: 28px;
+}
+
+nav a {
+    color: #111;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 70px 40px;
+}
+
+section {
+    margin-bottom: 100px;
+}
+
+#home {
+    min-height: 55vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#home h1 {
+    font-size: 52px;
+    margin-bottom: 10px;
+}
+
+#home h2 {
+    font-size: 25px;
+    margin: 0 0 18px 0;
+    font-weight: normal;
+}
+
+p {
+    font-size: 18px;
+    line-height: 1.7;
+    max-width: 700px;
+}
+
+section h2 {
+    font-size: 32px;
+    border-bottom: 1px solid #bbb;
+    padding-bottom: 12px;
+}
+
+section h3 {
+    font-size: 22px;
+}
+
+@media (max-width: 700px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    nav {
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    #home h1 {
+        font-size: 40px;
+    }
+}
