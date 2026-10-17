@@ -578,7 +578,29 @@
             Switch to selected page
         */
 
+const projectDropdowns = document.querySelectorAll(".project-dropdown");
+
+function closeProjectDropdowns() {
+    projectDropdowns.forEach(dropdown => {
+        dropdown.open = false;
+    });
+}
+
+projectDropdowns.forEach(dropdown => {
+    dropdown.addEventListener("toggle", () => {
+        if (dropdown.open) {
+            projectDropdowns.forEach(other => {
+                if (other !== dropdown) {
+                    other.open = false;
+                }
+            });
+        }
+    });
+});
+     
         function showPage(pageName) {
+
+         closeProjectDropdowns();
 
             /* Hide all sections */
 
@@ -723,7 +745,10 @@
             Initial page load
         */
 
+        closeProjectDropdowns();
         loadFromURL();
+
+        window.addEventListener("pageshow", closeProjectDropdowns);
 
     </script>
 
