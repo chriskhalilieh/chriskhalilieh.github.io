@@ -304,9 +304,16 @@
     line-height: 1.5;
 }
 
+.project-dropdown summary {
+    font-size: 30px;
+    cursor: pointer;
+    padding: 8px 0;
+}
+     
     </style>
 </head>
 
+ 
 
 <body>
 
@@ -433,49 +440,31 @@
                  PROJECTS
             ================================== -->
 
-            <div
-                id="projects"
-                class="section"
            <div id="projects" class="section">
 
     <details class="project-dropdown">
-        <summary>Apple Music ESP32 Display</summary>
+        <summary>ESP32 media display</summary>
 
         <div class="project-info">
             <img
                 class="project-image"
                 src="music-display.jpg"
-                alt="Apple Music ESP32 Display"
+                alt="ESP32 media display"
             >
 
             <p>
-                A touchscreen music display built with an ESP32 that shows
-                the currently playing song, artist, album, and album artwork
-                from Apple Music.
+                This is a touchscreen Apple Music media screen I made using an ESP32 that displays the album artwork, song progress, and features 
+                pause/resume buttons and volume control. I used the macOS automator to start the terminal once the music app is opened so 
+                it isn't running in the background constantly.
             </p>
 
             <p>
-                <strong>What I learned:</strong>
-                I learned how the ESP32, Wi-Fi connection, and Mac-side
-                software work together to keep the display updated and
-                responsive.
+                <strong>what i learned:</strong>
+                While I did learn a lot about ESP32 and how to use arduino IDE, I learned a lot more about configuring macOS and troubleshooting any issues I had.
+                From automatically starting programs, extracting certain data from my computer, and debugging code, overall I learned a lot from this neat little project.
             </p>
         </div>
     </details>
-
-
-    <details class="project-dropdown">
-        <summary>Custom TARS-Inspired Robot</summary>
-
-        <div class="project-info">
-            <p>
-                Currently in progress.
-            </p>
-        </div>
-    </details>
-
-</div>
-
 
 
             <!-- =================================
@@ -563,7 +552,7 @@
         const titles = {
 
             home:
-                "Chris Khalilieh.",
+                "Christopher Khalilieh",
 
             about:
                 "About",
