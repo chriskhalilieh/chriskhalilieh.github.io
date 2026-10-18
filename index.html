@@ -304,14 +304,13 @@
 
     display: block;
     width: 100%;
-
     object-fit: contain;
-
     margin-bottom: 0;
 }
 
 
 .project-info p {
+    grid-column: 1;
     font-size: 20px;
     line-height: 1.5;
 }
@@ -349,9 +348,6 @@
         padding-bottom: 80px;
     }
 
-}
-     .project-image {
-    cursor: zoom-in;
 }
      
     </style>
@@ -490,12 +486,11 @@
         <summary>ESP32 media display</summary>
 
         <div class="project-info">
-            <a href="music-display.jpg" target="_blank">
-    <img
-        class="project-image"
-        src="music-display.jpg"
-        alt="ESP32 media display"
-    >
+<img
+    class="project-image"
+    src="music-display.jpg"
+    alt="ESP32 media display"
+>
 </a>
 
             <p>
