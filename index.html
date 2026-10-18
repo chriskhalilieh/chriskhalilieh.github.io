@@ -320,6 +320,26 @@
     padding-top: 50vh;
     padding-bottom: 80px;
 }
+
+@media (min-width: 801px) {
+
+    .sidebar {
+        position: sticky;
+        top: 50vh;
+        transform: translateY(-50%);
+        align-self: start;
+    }
+
+    .content:has(#projects.active) {
+        align-self: stretch;
+    }
+
+    #projects.active {
+        padding-top: calc(50vh - 25px);
+        padding-bottom: 80px;
+    }
+
+}
      
     </style>
 </head>
